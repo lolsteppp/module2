@@ -1,128 +1,136 @@
-*{
+/* Основные установки */
+* {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  background-color: #f5f5f5;
+  color: #111;
+  padding: 20px;
 }
 
-body{
-  font-family: 'Lato', sans-serif;  
-}
-
-.row{
-  width: 100%;
-}
-
-.menu-title{
+/* Заголовок страницы */
+.site-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+.site-header h1 {
+  margin: 0;
 }
 
-.container{
- position: relative;
- top:60px;
- margin: 15px; 
+/* Контейнер для секций */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.item{
-  position: relative;
-  top: 0;
-  background-color:#999999;
-  margin: 15px;
-  padding: 25px;
-  border: 3px solid #000;
+/* Секции (карточки) */
+.card {
+  position: relative; /* чтобы позиционировать заголовок внутри */
+  float: left;
+  width: 32%;
+  margin-right: 2%;
+  background: #fff;
+  border: 1px solid #000;
+  padding: 16px;
+  min-height: 160px;
 }
 
-.item p{
-  margin-top: 18px;
-  text-align: justify;
-  font-size:100%;
+/* Убираем отступ у каждого третьего элемента */
+.card:nth-of-type(3n) {
+  margin-right: 0;
 }
 
-.item-title{
+/* Заголовок секции, позиционированный в углу */
+.card-title {
   position: absolute;
-  top:0;
-  right: 0px;
-  background: green; 
-  padding: 6px 90px;
-  border-left: 2px solid #000;
-  border-bottom: 2px solid #000;
+  top: 10px;
+  right: 10px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #000;
+  font-weight: bold;
 }
 
-#title-one {
-  background-color: #D59898;
-} 
-
-#title-two{
-  background-color: #C14543;
+/* Немного сдвига текста вниз, чтобы не налезал на заголовок */
+.card-body {
+  padding-top: 30px;
 }
 
-#title-three{
-  background-color: #E5D198;
+/* Разные цвета для визуального различия */
+#chicken {
+  background: #fff6e6;
+}
+#chicken .card-title {
+  background: #ffd7a8;
 }
 
-/* Simple Responsive Framework. */
-/*------ Desktop ------*/
-@media (min-width: 992px){
-  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-    float: left;  
+#beef {
+  background: #ffecec;
+}
+#beef .card-title {
+  background: #ffadad;
+}
+
+#sushi {
+  background: #e8fff2;
+}
+#sushi .card-title {
+  background: #b8f2d6;
+}
+
+/* Очистка float */
+.clearfix {
+  clear: both;
+}
+
+/* Media queries для адаптива */
+
+/* Tablet: 768px — 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .card {
+    width: 49%;
+    margin-right: 2%;
   }
-  .col-lg-1 {
-    width: 8.33%;
-  }
-  .col-lg-2 {
-    width: 16.66%;
-  }
-  .col-lg-3 {
-    width: 25%;
-  }
-  .col-lg-4 {
-    width: 33.33%;
-  }
-  .col-lg-5 {
-    width: 41.66%;
-  }
-  .col-lg-6 {
-    width: 50%;
-  }
-  .col-lg-7 {
-    width: 58.33%;
-  }
-  .col-lg-8 {
-    width: 66.66%;
-  }
-  .col-lg-9 {
-    width: 74.99%;
-  }
-  .col-lg-10 {
-    width: 83.33%;
-  }
-  .col-lg-11 {
-    width: 91.66%;
-  }
-  .col-lg-12 {
+  .card:nth-of-type(3) {
     width: 100%;
+    margin-right: 0;
+    margin-top: 16px;
   }
-
 }
 
-
-/*------ Tablet ------*/
-@media (min-width: 768px) and (max-width: 991px){
-  .col-lg-4 {
-    width: 50%;
-    float: left;
-  }
-  .col-lg-tablet{
-   width: 100%;
-   float: left;
- }
-}
-
-
-/*------ Mobile ------*/
-@media (max-width: 767px){
-  .col-lg-4{
+/* Mobile: ≤ 767px */
+@media (max-width: 767px) {
+  .card {
     width: 100%;
-    float: left;
+    margin-right: 0;
+    margin-top: 12px;
   }
+  .card:nth-of-type(1) {
+    margin-top: 0;
+  }
+  .card-title {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+/* Desktop: ≥ 992px (стили по умолчанию выше уже покрывают desktop) */
+@media (min-width: 992px) {
+  .container {
+    padding-bottom: 20px;
+  }
+}
+
+/* Стили для footer */
+.site-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #444;
 }
